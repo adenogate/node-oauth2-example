@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/static/bootstrap.min.css" />
+        <link rel="stylesheet" href="/static/default.css" />
+        <title>AuthServer Authenticate</title>
+    </head>
+    <body>
+    <div class="front-container">
+      <form action='/oauth/authorize' method="post">
+        <h1>AuthServer Authentication</h1>
+        <div class='form-group'>
+          <label>Scope</label>
+          <input class='form-control' name='scope'/>
+          </div>
+        <div class='form-group'>
+        <label>Client Id</label>
+        <input class='form-control' name='client_id'/>
+        </div>
+        <div class='form-group'>
+        <label>Redirect Uri</label>
+        <input class='form-control' name='redirect_uri'/>
+        </div>
+        <div class='form-group'>
+        <label>Response Type</label>
+        <input class='form-control' name='response_type'/>
+        </div>
+        <div class='form-group'>
+        <label>Grant Type</label>
+        <input class='form-control' name='grant_type'/>
+        </div>
+        <div class='form-group'>
+        <label>State</label>
+        <input class='form-control' name='state'/>
+        </div>
+        <div class="form-group">
+        <label>Username</label>
+        <input class='form-control auth' type="text" name="username">
+        </div>
+        <div class="form-group">
+        <label>Password</label>
+        <input class='form-control auth' type="password" name="password" />
+        </div>
+        <input type='submit' class='btn btn-success' />
+        <a href="/auth/registration" class="btn btn-primary">Registrate Instead</a>
+      </form>
+    </body>
+    <script>
+      ;(function(){
+    const urlParams = new URLSearchParams(window.location.search)
+    ;['scope', 'client_id','redirect_uri', 'response_type', 'grant_type', 'state'].forEach(type => {
+      const input = document.body.querySelector(`input[name=${type}]`)
+      const value = urlParams.get(type)
+      input.value = value
+    })
+    const error = urlParams.get('success') === 'false'
+    if(error) {
+      document.body.querySelectorAll('.auth').forEach(el => el.classList.add('is-invalid'))
+    }
+  }())
+    </script>
+</html>

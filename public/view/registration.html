@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/bootstrap.min.css" />
+        <link rel="stylesheet" href="/static/default.css" />
+        <title>AuthServer Registration</title>
+    </head>
+    <body>
+        <div class="front-container">
+            <form action="/auth/registrate" method="post" style="width:80vw;margin-left:10vw;">
+                <h1>AuthServer Registration</h1>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input style="width:70%;" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input style="width:70%;"  type="password"  class="form-control" id="exampleInputPassword1" placeholder="Password"  name="password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Repeat Your Password</label>
+                    <input style="width:70%;"  type="password"  class="form-control" id="exampleInputPassword2" placeholder="Repeat Password"  name="rpassword">
+                </div>
+                <button type="submit" class="btn btn-success">registrate</button>
+                <button type="button" class="btn btn-primary"><a href="/client">Login Instead</a></button>
+                <!--
+                <div class="alert alert-danger mt-5" role="alert" style="width:70%;">
+                    Something went wrong.
+                </div>
+                -->
+            </form>
+            <!--
+            <i class="text-danger">...Ups, something went wrong.</i>
+            <a class="text-primary" href="/">go home</a>
+            -->
+        </div>
+    </body>
+</html>
